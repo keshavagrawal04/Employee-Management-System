@@ -1,0 +1,21 @@
+{
+  "name": "employee-management-system-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "author": "Keshav Agrawal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.5"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
