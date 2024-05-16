@@ -1,0 +1,34 @@
+:root {
+  --primary-color: #e297dc;
+  --secondary-color: #2a454e;
+  --light-secondary-color: #2a454eaf;
+}
+
+* {
+  font-family: "Poppins";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  user-select: none;
+}
+
+.text-color-primary {
+  color: var(--primary-color);
+}
+
+.text-color-secondary {
+  color: var(--secondary-color);
+}
+
+.bg-color-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-color-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn:hover {
+  background-color: var(--light-secondary-color);
+}
