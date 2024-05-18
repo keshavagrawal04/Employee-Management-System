@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Email</title>
+  <style>
+    /* Import Poppins font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      /* Use Poppins or fallback font */
+    }
+
+    table {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .invite-container {
+      background-color: white;
+      padding: 50px 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .text-secondary {
+      color: #7f7f7f;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      /* Use Poppins or fallback font */
+      border-radius: 5px;
+      display: inline-block;
+      margin: 20px 0;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    h5 {
+      color: red;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 400px) {
+      .invite-container {
+        width: 90%;
+        padding: 40px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <table class="margin: auto">
+    <tr>
+      <td align="center">
+        <div class="invite-container" style="text-align: center;">
+          <div>
+            <img src="https://res.cloudinary.com/di5uhy426/image/upload/v1716012253/tsmkpygop9pmf6hhrnim.png" alt="EMS">
+          </div>
+          <h3>You're Invited to Join Us!</h3>
+          <p class="text-secondary">We are excited to have you on board. Click the button below to register.</p>
+          <form action="{{url}}" method="get">
+            <button class="btn" type="submit">Click Here to Register</button>
+          </form>
+          <h5 class="validate">Link valid for 12 hours</h5>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

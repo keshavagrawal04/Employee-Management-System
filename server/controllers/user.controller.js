@@ -1,6 +1,6 @@
 const { userService } = require("../services");
 const { responseMessages } = require("../configs");
-const { crypto, jwt } = require("../utils");
+const { crypto, jwt, email } = require("../utils");
 
 const login = async (req, res) => {
   try {
@@ -83,6 +83,23 @@ const getUsers = async (req, res) => {
   }
 };
 
+const inviteEmployee = async (req, res) => {
+  try {
+    const { email: userEmail } = req.body;
+    const inviteToken = await generateInviteToken(req.body);
+    const inviteUrl = `${process.env.CLIENT_URL}/${inviteToken}`;
+    const response = await email.sendInvite(userEmail, inviteUrl);
+    console.log(response);
+    res.status(200).json({ message: "Email sended successfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({
+      status: 500,
+      message: responseMessages.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
+
 const getUser = async (req, res) => {
   try {
     const user = await userService.findUserById(req.params.id);
@@ -107,4 +124,5 @@ module.exports = {
   register,
   getUsers,
   getUser,
+  inviteEmployee,
 };

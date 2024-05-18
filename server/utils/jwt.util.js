@@ -21,6 +21,19 @@ const generateTokens = async (payload) => {
   }
 };
 
+generateInviteToken = async (payload) => {
+  try {
+    const { INVITE_SECRET_KEY, INVITE_EXPIRY } = process.env;
+    const inviteToken = await JWT.sign(payload, INVITE_SECRET_KEY, {
+      expiresIn: INVITE_EXPIRY,
+    });
+    return inviteToken;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   generateTokens,
+  generateInviteToken,
 };
