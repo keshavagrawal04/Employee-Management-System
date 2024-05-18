@@ -32,3 +32,20 @@
 .btn:hover {
   background-color: var(--light-secondary-color);
 }
+
+.error {
+  font-size: 15px;
+  font-weight: 550;
+  color: rgb(200, 23, 23);
+  height: 20px !important;
+}
+
+.error2 {
+  height: 20px !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

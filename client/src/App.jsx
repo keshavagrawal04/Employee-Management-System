@@ -1,10 +1,10 @@
-import Authentication from "./pages/Authentication";
+import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   return (
-    <div>
-      <Authentication />
-    </div>
+    <>
+      <AppRoutes />
+    </>
   );
 };
 

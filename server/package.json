@@ -9,11 +9,13 @@
   "author": "Keshav Agrawal",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.5",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.5"
+    "mongoose": "^8.3.5",
+    "react-redux": "^9.1.2"
   },
   "devDependencies": {
     "dotenv": "^16.4.5"

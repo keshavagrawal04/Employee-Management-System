@@ -33,7 +33,7 @@ const Login = () => {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  autoComplete={false}
+                  autoComplete="false"
                   className="form-control fs-6"
                   id="email"
                 />
@@ -43,7 +43,7 @@ const Login = () => {
                   type={togglePassword ? "text" : "password"}
                   value={password}
                   placeholder="Enter Your Password"
-                  autoComplete={false}
+                  autoComplete="false"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}

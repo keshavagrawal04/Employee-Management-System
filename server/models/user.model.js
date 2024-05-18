@@ -4,6 +4,7 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
+      required: true,
     },
     email: {
       type: String,
@@ -12,6 +13,7 @@ const userSchema = mongoose.Schema(
     },
     phoneNumber: {
       type: Number,
+      required: true,
     },
     password: {
       hash: {
@@ -26,6 +28,7 @@ const userSchema = mongoose.Schema(
     },
     dateOfBirth: {
       type: Date,
+      required: true,
     },
     isVerified: {
       type: Boolean,
@@ -33,6 +36,7 @@ const userSchema = mongoose.Schema(
     },
     jobTitle: {
       type: String,
+      required: true,
     },
     role: {
       type: String,
@@ -43,27 +47,33 @@ const userSchema = mongoose.Schema(
       bankName: {
         type: String,
         trim: true,
+        required: true,
       },
       branchName: {
         type: String,
         trim: true,
+        required: true,
       },
       ifscCode: {
         type: String,
         trim: true,
         uppercase: true,
+        required: true,
       },
       accountHolderName: {
         type: String,
         trim: true,
+        required: true,
       },
       accountNumber: {
         type: String,
         trim: true,
+        required: true,
       },
       postName: {
         type: String,
         trim: true,
+        required: true,
       },
     },
   },
