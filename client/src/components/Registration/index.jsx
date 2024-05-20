@@ -5,10 +5,14 @@ import { useFormik } from "formik";
 import { userRegister } from "../../schemas/userSchema";
 import { TextInput, PasswordInput } from "../Inputs";
 import "./style.css";
+import { useParams } from "react-router-dom";
 
 const Registration = () => {
   const [togglePassword, setTogglePassword] = useState(false);
   const [toggleConfirmPassword, setToggleConfirmPassword] = useState(false);
+
+  const params = useParams();
+  console.log(params.token);
 
   const formik = useFormik({
     initialValues: {

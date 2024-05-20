@@ -21,7 +21,7 @@ const generateTokens = async (payload) => {
   }
 };
 
-generateInviteToken = async (payload) => {
+const generateInviteToken = async (payload) => {
   try {
     const { INVITE_SECRET_KEY, INVITE_EXPIRY } = process.env;
     const inviteToken = await JWT.sign(payload, INVITE_SECRET_KEY, {
@@ -33,7 +33,19 @@ generateInviteToken = async (payload) => {
   }
 };
 
+const verifyInviteToken = async (token) => {
+  try {
+    const { INVITE_SECRET_KEY } = process.env;
+    const payload = JWT.verify(token, INVITE_SECRET_KEY);
+    console.log(payload);
+    return payload;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   generateTokens,
   generateInviteToken,
+  verifyInviteToken,
 };
