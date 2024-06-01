@@ -68,8 +68,7 @@ const register = async (req, res) => {
 
 const verifyInviteToken = async (req, res) => {
   try {
-    const { token } = req.query;
-    console.log(token);
+    const { token } = req.params;
     const payload = await jwt.verifyInviteToken(token);
     if (!payload)
       return res.status(201).json({

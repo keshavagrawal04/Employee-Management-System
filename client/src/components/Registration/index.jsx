@@ -1,18 +1,29 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { emsLogo } from "../../assets";
 import { useFormik } from "formik";
 import { userRegister } from "../../schemas/userSchema";
+import { toast } from "react-hot-toast";
 import { TextInput, PasswordInput } from "../Inputs";
+import { useRegisterMutation, useVerifyInviteTokenQuery } from "../../apis";
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Registration = () => {
   const [togglePassword, setTogglePassword] = useState(false);
   const [toggleConfirmPassword, setToggleConfirmPassword] = useState(false);
 
-  const params = useParams();
-  console.log(params.token);
+  const [registerUser] = useRegisterMutation();
+
+  const navigate = useNavigate();
+
+  const { token } = useParams();
+
+  const { data: status, error } = useVerifyInviteTokenQuery(token);
+  if (error) {
+    navigate("/");
+  }
+  useEffect(() => {}, { status, error });
 
   const formik = useFormik({
     initialValues: {
@@ -34,7 +45,16 @@ const Registration = () => {
     },
     validationSchema: userRegister,
     onChange: async (values) => {
-      console.log(values);
+      try {
+        const { data, error } = await registerUser(values);
+        if (error) {
+          toast.error(error.data.message);
+        } else {
+          toast.success(data.data.message);
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
     },
   });
 
@@ -88,6 +108,7 @@ const Registration = () => {
                   setToggle={setTogglePassword}
                   formik={formik}
                   id="password"
+                  placeholder="Create New Your Password"
                 />
               </Col>
               <Col xl={4} lg={4} md={6} className="mb-2">
@@ -96,6 +117,7 @@ const Registration = () => {
                   setToggle={setToggleConfirmPassword}
                   formik={formik}
                   id="confirmPassword"
+                  placeholder="Confirm Your Password"
                 />
               </Col>
               <Col xl={4} lg={4} md={6} className="mb-2">

@@ -1,5 +1,16 @@
 import * as yup from "yup";
 
+const userLogin = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please enter a valid email")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+});
+
 const userRegister = yup.object().shape({
   name: yup.string().trim().required("Please enter your name"),
   email: yup
@@ -33,4 +44,4 @@ const userRegister = yup.object().shape({
   postName: yup.string().required("Post name is required"),
 });
 
-export { userRegister };
+export { userRegister, userLogin };

@@ -37,7 +37,6 @@ const verifyInviteToken = async (token) => {
   try {
     const { INVITE_SECRET_KEY } = process.env;
     const payload = JWT.verify(token, INVITE_SECRET_KEY);
-    console.log(payload);
     return payload;
   } catch (error) {
     throw error;

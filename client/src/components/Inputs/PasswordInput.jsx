@@ -1,14 +1,14 @@
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-const PasswordInput = ({ toggle, setToggle, formik, id }) => {
+const PasswordInput = ({ toggle, setToggle, formik, id, placeholder }) => {
   return (
     <div className="position-relative">
       <input
         type={toggle ? "text" : "password"}
-        id="confirmPassword"
-        name="confirmPassword"
+        id={id}
+        name={id}
         value={formik[id]}
-        placeholder="Enter Confirm Password"
+        placeholder={placeholder}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         style={{
